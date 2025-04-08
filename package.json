@@ -1,0 +1,40 @@
+{
+  "name": "electronbrowser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A modern web browser built with Electron",
+  "scripts": {
+    "start": "electron .",
+    "build": "node build-installer.js build"
+  },
+  "build": {
+    "appId": "com.electronbrowser.app",
+    "productName": "ElectronBrowser",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "**/*",
+      "!temp_build",
+      "!dist"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/browser-without-text.png",
+      "executableName": "ElectronBrowser"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  },
+  "dependencies": {
+    "electron-dl": "^4.0.0"
+  },
+  "devDependencies": {
+    "electron": "35.1.4",
+    "electron-builder": "^26.0.12"
+  }
+}
